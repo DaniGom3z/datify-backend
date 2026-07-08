@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+
+model Role {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(50)
+  users User[]
+
+  @@map("roles")
+}
+
+model User{
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(100)
+  email String @unique @db.VarChar(150)
+  passwordHash String @map("password_hash") @db.VarChar(255)
+  roleId Int @map("role_id")
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp
+
+  //relaciones
+  role Role @relation(fields: [roleId], references: [id])
+  indicators Indicator[]
+
+  @@map("users")
+}
+
+model Area {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(100)
+  description String? @db.Text
+  createdAt   DateTime    @default(now()) @map("created_at") @db.Timestamp
+  
+  indicators  Indicator[]
+  @@map("areas")
+}
+
+model Indicator {
+  id           Int      @id @default(autoincrement())
+  name         String   @db.VarChar(150)
+  description  String?  @db.Text
+  valorActual  Decimal  @map("valor_actual") @db.Decimal(10, 2)
+  meta         Decimal  @db.Decimal(10, 2)
+  unidadMedida String   @map("unidad_medida") @db.VarChar(50)
+  areaId       Int      @map("area_id")
+  creadoPor    Int      @map("creado_por")
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamp
+
+  area         Area     @relation(fields: [areaId], references: [id])
+  creator      User     @relation(fields: [creadoPor], references: [id])
+
+  @@map("indicators")
+}
