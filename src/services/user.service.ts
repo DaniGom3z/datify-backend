@@ -1,6 +1,6 @@
 import prisma from "../config/prisma";
 import bcrypt from "bcrypt";
-import { CreateUserDTO, UpdateUserDTO, SafeUserResponse } from "../types/user"; // Importación limpia
+import { CreateUserDTO, UpdateUserDTO, SafeUserResponse } from "../types/user";
 
 export class UserService {
   /**
