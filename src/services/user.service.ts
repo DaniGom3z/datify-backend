@@ -115,7 +115,7 @@ export class UserService {
       if (!roleExists) {
         throw new Error("El rol proporcionado no es válido");
       }
-      updateData.rolId = data.roleId;
+      updateData.roleId = data.roleId;
     }
 
     const updatedUser = await prisma.user.update({
