@@ -26,7 +26,7 @@ const authController = new AuthController();
  *                 example: admin@datify.com
  *               password:
  *                 type: string
- *                 example: Admin123*
+ *                 example: Admin123
  *     responses:
  *       200:
  *         description: Login exitoso, retorna el token JWT.
