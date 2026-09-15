@@ -7,14 +7,17 @@ import userRoutes from "./routes/user.routes"
 import indicatorRoutes from "./routes/indicator.routes"
 const app = express();
 
+
+app.use(cors());
+app.use(express.json());
+
 app.get("/", (_, res) => {
     res.json({
         message: "Datify API running"
     });
 });
 
-app.use(cors());
-app.use(express.json());
+
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
