@@ -13,6 +13,10 @@ const options: swaggerJSDoc.Options = {
         url: "http://localhost:4000",
         description: "Servidor de Desarrollo Local",
       },
+      {
+        url: "https://datify-backend-ytcg.onrender.com",
+        description: "Servidor de Producción (Render)",
+      },
     ],
     components: {
       securitySchemes: {
