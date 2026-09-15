@@ -4,12 +4,12 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-  "dev": "tsx watch src/server.ts",
-  "postinstall": "prisma generate",
-  "build": "prisma generate && tsc",
-  "vercel-build": "prisma generate && tsc",
-  "start": "node dist/server.js"
-},
+    "dev": "tsx watch src/server.ts",
+    "postinstall": "prisma generate",
+    "build": "prisma generate && tsc",
+    "vercel-build": "prisma generate && tsc",
+    "start": "node dist/server.js"
+  },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
   },
@@ -30,7 +30,6 @@
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^3.0.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
