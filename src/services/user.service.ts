@@ -11,7 +11,7 @@ export class UserService {
       include: { role: true },
     });
 
-    return users.map((user) => ({
+    return users.map((user:any) => ({
       id: user.id,
       name: user.name,
       email: user.email,
