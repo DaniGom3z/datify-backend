@@ -1,5 +1,5 @@
 import prisma from "../config/prisma";
-import bcrypt from "bcrypt";
+import bcrypt from 'bcryptjs';
 import { generateToken } from "../utils/jwt";
 
 export class AuthService {
