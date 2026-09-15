@@ -2,17 +2,14 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
-    "postinstall": "prisma generate",
-    "vercel-build": "prisma generate && tsc",
-    "build": "prisma generate && tsc",
-    "start": "node dist/server.js",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
-    "prisma:studio": "prisma studio"
-  },
+  "dev": "tsx watch src/server.ts",
+  "postinstall": "prisma generate",
+  "build": "prisma generate && tsc",
+  "vercel-build": "prisma generate && tsc",
+  "start": "node dist/server.js"
+},
   "prisma": {
     "seed": "tsx prisma/seed.ts"
   },
